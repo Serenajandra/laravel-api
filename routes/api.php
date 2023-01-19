@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Api\ProjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\CssSelector\Node\FunctionNode;
@@ -21,7 +21,7 @@ use Symfony\Component\CssSelector\Node\FunctionNode;
 //         'success' => true,
 //         'result' => [
 //             'name' => 'Serena',
-//             'apellido' => 'Moraga'
+//             'state' => 'Italia'
 //         ]
 //     ]);
 // });
