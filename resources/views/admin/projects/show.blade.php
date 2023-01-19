@@ -5,7 +5,7 @@
         <div>
             <h5>Tipo di progetto</h5>
             {{-- <p>{{ $project->type?->type }}</p> --}}
-            <p>{{ $project->type ? $project->type : 'informazione mancante' }}</p>
+            <p>{{ $project->type ? $project->type->type : 'informazione mancante' }}</p>
         </div>
         <div>
             <h4 class="mt-3">Argomento trattato</h4>
