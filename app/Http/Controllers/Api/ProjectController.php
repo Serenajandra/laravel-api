@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -15,5 +16,11 @@ class ProjectController extends Controller
             'success' => true,
             'results' => $projects
         ]);
+
+        // $projects = Project::with('type', 'technologies')->get();
+        // return response()->json([
+        //     'success' => true,
+        //     'result' => $projects
+        // ]);
     }
 }
