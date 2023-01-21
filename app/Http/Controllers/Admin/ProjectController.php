@@ -67,13 +67,15 @@ class ProjectController extends Controller
 
         $project = Project::create($form_data);
         // Istruzioni condizionali nel caso siano state selezionate voci nel checkbox technologie:
-        if ($request->has('technologies')) {
-            $project->technologies()->attach($request->technologies);
-            //    project->technologies()->attach($form_data['technologies']);
+        // dd($request->technologies);
+        // dd($form_data);
 
+        if ($request->has('technologies')) {
+            // $project->technologies()->attach($request->technologies);
+            $project->technologies()->attach($form_data['technologies']);
         }
 
-
+        // dd($project);
         return redirect()->route('admin.projects.index')->with('message', 'Il progetto è stato creato correttamente');
     }
 
@@ -85,7 +87,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        // dd($project->technologies);
+        dd($project->technologies);
         // dd($project);
         return view('admin.projects.show', compact('project'));
     }

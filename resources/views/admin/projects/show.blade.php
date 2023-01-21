@@ -16,7 +16,7 @@
             <h4 class="mt-3">Presentazione in breve</h4>
             <p> {{ $project->presentation }}</p>
         </div>
-        {{-- <div>
+        <div>
             <h4 class="mt-3">Tecnologie</h4>
             <ul class="list-unstyled">
                 @forelse ($project->technologies as $technology)
@@ -26,7 +26,7 @@
                     </li>
                 @endforelse
             </ul>
-        </div> --}}
+        </div>
         <h4>Contenuto</h4>
         <p>{{ $project->content }}</p>
 
