@@ -48,13 +48,18 @@ class ProjectController extends Controller
     {
         // dd($request->all());
         // dd($request)->validated();
+
         $form_data = $request->validated();
         // dd($form_data);
+
         // $form_data['slug'] = Str::slug($form_data['title']);
         $form_data['slug'] = Project::generateSlug($form_data['title']);
+
         // $project = new Project();
         // $project->fill($form_data);
         // $project->save();
+        // Questi tre passaggi si possono ragghiudere anche in questo metodo:
+        // $project = Project::create($form_data);
 
         // if (array_key_exists('image', $form_data)) {
         //     // if ($request->hasFile('image'))
@@ -62,14 +67,15 @@ class ProjectController extends Controller
         //     // dd($path);
         //     $form_data['image'] = $path;
         // }
+
         // Inserisco user_id nei data da salvare:
         $form_data['user_id'] = Auth::id();
 
         $project = Project::create($form_data);
-        // Istruzioni condizionali nel caso siano state selezionate voci nel checkbox technologie:
         // dd($request->technologies);
         // dd($form_data);
 
+        // Istruzioni condizionali nel caso siano state selezionate voci nel checkbox technologie:
         if ($request->has('technologies')) {
             // $project->technologies()->attach($request->technologies);
             $project->technologies()->attach($form_data['technologies']);
@@ -87,8 +93,8 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        dd($project->technologies);
-        // dd($project);
+        // dd($project->technologies);
+        dd($project);
         return view('admin.projects.show', compact('project'));
     }
 
